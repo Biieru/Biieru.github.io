@@ -18,24 +18,535 @@ export const categories = ["all", "front", "back", "qa", "games"];
 
 export const projects = [
   {
-    id: "feira",
-    name: "Feira Plus+",
-    category: "front",
-    team: "solo",
-    stack: ["React", "Vite", "Capacitor", "localStorage"],
-    links: [{ kind: "code", href: "https://github.com/Biieru/Feira-PLUS" }],
-    pt: {
-      type: "App mobile",
-      summary:
-        "Lista de compras que organiza os itens pelos corredores do Novo Atacarejo, Assaí e Atacadão. Entende quantidade e unidade digitadas, deixa marcar o que já pegou e exporta em TXT ou JPG.",
-      reward: "Interface com tema escuro e letras grandes, pensada para quem tem dificuldade de leitura.",
+    "id": "books",
+    "name": "BooksAPI",
+    "category": "back",
+    "team": "solo",
+    "stack": [
+      "Python",
+      "Flask",
+      "SQLAlchemy",
+      "SQLite",
+      "Swagger",
+      "pytest"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/BooksAPI"
+      }
+    ],
+    "pt": {
+      "type": "API REST",
+      "summary": "API de livros com CRUD completo, persistência em SQLite e documentação Swagger. Código organizado em modelos, controladores e rotas, com testes automatizados e acompanhamento de cobertura.",
+      "reward": "Construção de APIs REST, separação de responsabilidades e validação de endpoints com pytest."
     },
-    en: {
-      type: "Mobile app",
-      summary:
-        "Shopping list that sorts items by aisle for three Brazilian wholesale chains. It parses typed quantities and units, lets you tick off items and exports to TXT or JPG.",
-      reward: "Dark theme with large type, designed for people who struggle to read small text.",
+    "en": {
+      "type": "REST API",
+      "summary": "Book API with full CRUD, SQLite persistence and Swagger documentation. Code organized into models, controllers and routes, with automated tests and coverage tracking.",
+      "reward": "REST API development, separation of concerns and endpoint validation with pytest."
+    }
+  },
+  {
+    "id": "estab",
+    "name": "BCB-Merchant-ETL",
+    "category": "back",
+    "team": "team",
+    "stack": [
+      "Python",
+      "pandas",
+      "OData",
+      "SQLite",
+      "SQLAlchemy",
+      "Power BI"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/BCB-Merchant-ETL"
+      }
+    ],
+    "pt": {
+      "type": "ETL e análise de dados · em dupla",
+      "summary": "Pipeline de estabelecimentos credenciados e ativos para cartões, por bandeira e trimestre. Extrai dados do Banco Central, transforma com pandas e exporta para CSV e SQLite; inclui notebook e relatório Power BI.",
+      "reward": "Integração com API OData, persistência relacional e apresentação de dados em Power BI."
     },
+    "en": {
+      "type": "ETL and data analysis · pair project",
+      "summary": "Pipeline for accredited and active card merchants by card brand and quarter. Extracts Central Bank data, transforms it with pandas and exports to CSV and SQLite; includes a notebook and Power BI report.",
+      "reward": "OData API integration, relational persistence and data presentation in Power BI."
+    }
+  },
+  {
+    "id": "forex-etl",
+    "name": "BCB-Forex-ETL",
+    "category": "back",
+    "team": "solo",
+    "stack": [
+      "Python",
+      "pandas",
+      "requests",
+      "PyMongo",
+      "MongoDB Atlas"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/BCB-Forex-ETL"
+      }
+    ],
+    "pt": {
+      "type": "ETL de câmbio",
+      "summary": "Coleta cotações cambiais da API PTAX do Banco Central por data e período, organiza respostas JSON com pandas e armazena os registros em coleções no MongoDB Atlas.",
+      "reward": "Consumo de dados financeiros, transformação de JSON em DataFrames e persistência em banco NoSQL."
+    },
+    "en": {
+      "type": "Foreign exchange ETL",
+      "summary": "Collects exchange rates from the Central Bank's PTAX API by date and period, organizes JSON responses with pandas and stores records in MongoDB Atlas collections.",
+      "reward": "Financial data ingestion, JSON-to-DataFrame transformation and NoSQL persistence."
+    }
+  },
+  {
+    "id": "card-etl",
+    "name": "BCB-CardTransactions-ETL",
+    "category": "back",
+    "team": "solo",
+    "stack": [
+      "Python",
+      "requests",
+      "PyMongo",
+      "MongoDB",
+      "python-dotenv"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/BCB-CardTransactions-ETL"
+      }
+    ],
+    "pt": {
+      "type": "ETL de transações",
+      "summary": "Pipeline de transações nacionais e internacionais de cartões de crédito e débito. Separa modelos, serviços, pré-processamento e repositórios para coletar, validar e armazenar dados do Banco Central no MongoDB.",
+      "reward": "Arquitetura em camadas, configuração por variáveis de ambiente e processamento com logs e modo de teste."
+    },
+    "en": {
+      "type": "Card transaction ETL",
+      "summary": "Pipeline for domestic and international credit and debit card transactions. Separates models, services, preprocessing and repositories to collect, validate and store Central Bank data in MongoDB.",
+      "reward": "Layered architecture, environment-based configuration and processing with logs and a test mode."
+    }
+  },
+  {
+    "id": "forex-pipeline",
+    "name": "Forex-Data-Pipeline",
+    "category": "back",
+    "team": "solo",
+    "stack": [
+      "Python",
+      "requests",
+      "PyMongo",
+      "MongoDB",
+      "python-dotenv"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/Forex-Data-Pipeline"
+      }
+    ],
+    "pt": {
+      "type": "Pipeline modular",
+      "summary": "Coleta dados cambiais de uma API REST, limpa e valida os registros e os envia ao MongoDB. Configuração, serviços, pré-processadores e repositórios ficam em módulos separados.",
+      "reward": "Separação de responsabilidades, normalização de dados e validação da configuração de conexão."
+    },
+    "en": {
+      "type": "Modular pipeline",
+      "summary": "Collects exchange data from a REST API, cleans and validates records and sends them to MongoDB. Configuration, services, preprocessors and repositories live in separate modules.",
+      "reward": "Separation of concerns, data normalization and connection configuration validation."
+    }
+  },
+  {
+    "id": "etl",
+    "name": "etlBCB",
+    "category": "back",
+    "team": "solo",
+    "stack": [
+      "Python",
+      "pandas",
+      "SQLite",
+      "SQLAlchemy",
+      "scikit-learn",
+      "Prophet"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/etlBCB"
+      }
+    ],
+    "pt": {
+      "type": "ETL e modelos de previsão",
+      "summary": "Extrai dados de meios de pagamento do Banco Central, trata com pandas e grava em CSV ou bancos relacionais. Notebooks exploram Pix e cartões, correlações e modelos de previsão com Random Forest e Prophet.",
+      "reward": "Pipeline de ponta a ponta, análise exploratória e experimentação com modelos de previsão."
+    },
+    "en": {
+      "type": "ETL and forecasting models",
+      "summary": "Extracts Central Bank payment data, processes it with pandas and loads it into CSV or relational databases. Notebooks explore Pix and cards, correlations and forecasting models with Random Forest and Prophet.",
+      "reward": "End-to-end pipelines, exploratory analysis and experimentation with forecasting models."
+    }
+  },
+  {
+    "id": "employee-analysis",
+    "name": "Employee-Data-Analysis",
+    "category": "back",
+    "team": "solo",
+    "stack": [
+      "Python",
+      "pandas",
+      "Matplotlib",
+      "Seaborn",
+      "Jupyter"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/Employee-Data-Analysis"
+      }
+    ],
+    "pt": {
+      "type": "Análise exploratória",
+      "summary": "Notebook que explora uma base de funcionários: distribuição de idades, salários por escolaridade e estado civil e composição familiar. Trata valores ausentes e apresenta histogramas, boxplots e gráficos de dispersão.",
+      "reward": "Preparação de dados, estatística descritiva e visualizações para investigar relações entre variáveis."
+    },
+    "en": {
+      "type": "Exploratory analysis",
+      "summary": "Notebook exploring an employee dataset: age distribution, salaries by education and marital status, and family composition. Handles missing values and presents histograms, boxplots and scatter plots.",
+      "reward": "Data preparation, descriptive statistics and visualizations to investigate relationships between variables."
+    }
+  },
+  {
+    "id": "totp",
+    "name": "Flask-TOTP-Authentication",
+    "category": "back",
+    "team": "solo",
+    "stack": [
+      "Python",
+      "Flask",
+      "PyOTP",
+      "Werkzeug",
+      "qrcode"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/Flask-TOTP-Authentication"
+      }
+    ],
+    "pt": {
+      "type": "Protótipo de autenticação MFA",
+      "summary": "Demonstra login com senha e uma segunda etapa com códigos TOTP. Inclui cadastro, QR Code para configurar o autenticador e uma área protegida por sessão, em um protótipo educacional.",
+      "reward": "Fluxos de autenticação multifator, hash de senhas, sessões Flask e identificação de limites de segurança."
+    },
+    "en": {
+      "type": "MFA authentication prototype",
+      "summary": "Demonstrates password login followed by a second step using TOTP codes. Includes registration, a QR code for authenticator setup and a session-protected area in an educational prototype.",
+      "reward": "Multifactor authentication flows, password hashing, Flask sessions and identifying security limitations."
+    }
+  },
+  {
+    "id": "feira",
+    "name": "Feira Plus+",
+    "category": "front",
+    "team": "solo",
+    "stack": [
+      "React",
+      "JavaScript",
+      "Capacitor",
+      "localStorage"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/Feira-PLUS"
+      }
+    ],
+    "pt": {
+      "type": "App mobile",
+      "summary": "Lista de compras que organiza itens pelos corredores de três redes de atacarejo. Interpreta quantidades e unidades, acompanha itens encontrados e exporta listas em TXT ou JPG; inclui versão Android.",
+      "reward": "Gerenciamento de estado, classificação por regras e interface com letras grandes voltada ao uso durante as compras."
+    },
+    "en": {
+      "type": "Mobile app",
+      "summary": "Shopping list that organizes items by aisle for three wholesale chains. Parses quantities and units, tracks collected items and exports lists to TXT or JPG; includes an Android version.",
+      "reward": "State management, rule-based classification and a large-type interface designed for shopping."
+    }
+  },
+  {
+    "id": "paz",
+    "name": "P.A.Z",
+    "category": "front",
+    "team": "solo",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "SVG"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/P.A.Z"
+      },
+      {
+        "kind": "site",
+        "href": "https://p-a-z.onrender.com/"
+      }
+    ],
+    "pt": {
+      "type": "Website de comunidade gamer",
+      "summary": "Site da comunidade Predators of the Abyssal Zone, com navegação dinâmica, seções da tripulação, transições e áudio ambiente. Atualiza o conteúdo mantendo elementos compartilhados da interface.",
+      "reward": "Manipulação do DOM, navegação entre páginas e construção de uma experiência temática sem frameworks."
+    },
+    "en": {
+      "type": "Gaming community website",
+      "summary": "Website for the Predators of the Abyssal Zone community, with dynamic navigation, crew sections, transitions and ambient audio. Updates content while keeping shared interface elements.",
+      "reward": "DOM manipulation, page navigation and building a themed experience without frameworks."
+    }
+  },
+  {
+    "id": "giums-site",
+    "name": "GIUMS-SITE",
+    "category": "front",
+    "team": "solo",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/GIUMS-SITE"
+      }
+    ],
+    "pt": {
+      "type": "Portfólio artístico",
+      "summary": "Site para a artista GIUMS, com galeria por categorias, apresentação de serviços e informações sobre comissões. Conteúdo, preços e disponibilidade são configurados em um arquivo de dados JavaScript.",
+      "reward": "Design responsivo, organização de conteúdo e separação entre dados e interface para facilitar atualizações."
+    },
+    "en": {
+      "type": "Artist portfolio",
+      "summary": "Website for artist GIUMS, with a categorized gallery, service presentation and commission information. Content, prices and availability are configured in a JavaScript data file.",
+      "reward": "Responsive design, content organization and separation of data from the interface to simplify updates."
+    }
+  },
+  {
+    "id": "giums-mediakit",
+    "name": "GIUMS.Mediakit",
+    "category": "front",
+    "team": "solo",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "i18n",
+      "Print CSS"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/GIUMS.Mediakit"
+      }
+    ],
+    "pt": {
+      "type": "Media kit bilíngue",
+      "summary": "Apresentação comercial para a artista GIUMS em português e inglês. Reúne perfil, serviços e informações de audiência em três páginas A4, com alternância de idioma, impressão e acesso a PDFs.",
+      "reward": "Internacionalização, atualização dinâmica de textos e CSS para conciliar leitura no navegador e impressão."
+    },
+    "en": {
+      "type": "Bilingual media kit",
+      "summary": "Commercial presentation for artist GIUMS in Portuguese and English. Brings together profile, services and audience information in three A4 pages, with language switching, printing and PDF access.",
+      "reward": "Internationalization, dynamic text updates and CSS for both browser reading and printing."
+    }
+  },
+  {
+    "id": "portfolio-site",
+    "name": "Portfolio-Site",
+    "category": "front",
+    "team": "solo",
+    "stack": [
+      "React",
+      "Vite",
+      "React Router",
+      "Framer Motion"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/Portfolio-Site"
+      },
+      {
+        "kind": "site",
+        "href": "https://gabriel-caraujo.onrender.com/"
+      }
+    ],
+    "pt": {
+      "type": "Portfólio interativo",
+      "summary": "Portfólio com componentes React, navegação entre páginas via React Router, transições com Framer Motion e áudio ambiente. Explora uma apresentação profissional com recursos multimídia.",
+      "reward": "Componentização, roteamento no cliente e animações declarativas em React."
+    },
+    "en": {
+      "type": "Interactive portfolio",
+      "summary": "Portfolio with React components, page navigation through React Router, Framer Motion transitions and ambient audio. Explores professional presentation with multimedia features.",
+      "reward": "Component-based development, client-side routing and declarative animation in React."
+    }
+  },
+  {
+    "id": "github-portfolio",
+    "name": "Biieru.github.io",
+    "category": "front",
+    "team": "solo",
+    "stack": [
+      "React",
+      "Vite",
+      "CSS",
+      "GitHub Actions",
+      "GitHub Pages"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/Biieru.github.io"
+      },
+      {
+        "kind": "site",
+        "href": "https://biieru.github.io/"
+      }
+    ],
+    "pt": {
+      "type": "Portfólio bilíngue",
+      "summary": "Este portfólio: interface inspirada em menus de RPG, cartões filtráveis e conteúdo em português e inglês. Inclui navegação por teclado e publicação automática no GitHub Pages.",
+      "reward": "Componentização, persistência de idioma, acessibilidade e automação de build e deploy."
+    },
+    "en": {
+      "type": "Bilingual portfolio",
+      "summary": "This portfolio: an RPG-menu-inspired interface, filterable cards and content in Portuguese and English. Includes keyboard navigation and automatic publishing to GitHub Pages.",
+      "reward": "Component-based development, language persistence, accessibility and build and deployment automation."
+    }
+  },
+  {
+    "id": "recielo",
+    "name": "ReciELO",
+    "category": "front",
+    "team": "team",
+    "stack": [
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "SQL",
+      "MySQL"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/ReciELO"
+      }
+    ],
+    "pt": {
+      "type": "Protótipo de participação comunitária",
+      "summary": "Projeto acadêmico com telas estáticas de login, cadastro e perfil, além de um modelo MySQL para usuários, publicações, comentários e votações. As interfaces e o banco ainda não estão integrados.",
+      "reward": "Prototipação de formulários e modelagem relacional com chaves primárias e estrangeiras."
+    },
+    "en": {
+      "type": "Community participation prototype",
+      "summary": "Academic project with static login, registration and profile screens, plus a MySQL model for users, posts, comments and polls. The interfaces and database are not yet integrated.",
+      "reward": "Form prototyping and relational modeling with primary and foreign keys."
+    }
+  },
+  {
+    "id": "qa4",
+    "name": "Python-Unit-Testing",
+    "category": "qa",
+    "team": "solo",
+    "stack": [
+      "Python",
+      "unittest"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/Python-Unit-Testing"
+      }
+    ],
+    "pt": {
+      "type": "Testes unitários",
+      "summary": "Calculadora com quatro operações e testes que verificam números positivos e negativos, multiplicação por zero e tratamento de divisão por zero.",
+      "reward": "Construção de casos de teste, verificação de resultados esperados e cobertura de condições excepcionais."
+    },
+    "en": {
+      "type": "Unit testing",
+      "summary": "Four-operation calculator with tests checking positive and negative numbers, multiplication by zero and division-by-zero handling.",
+      "reward": "Test case design, expected-result verification and coverage of exceptional conditions."
+    }
+  },
+  {
+    "id": "class-selector",
+    "name": "Tales-Class-Selector",
+    "category": "games",
+    "team": "solo",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/Tales-Class-Selector"
+      }
+    ],
+    "pt": {
+      "type": "Interface e mecânicas de RPG",
+      "summary": "Seletor de classes que apresenta 15 cartas e sorteia raridades com probabilidades ponderadas. Ao escolher uma carta, uma animação revela a classe enquanto as demais desaparecem.",
+      "reward": "Aleatoriedade ponderada, programação orientada a eventos e animações CSS para dar resposta às ações do jogador."
+    },
+    "en": {
+      "type": "RPG interface and mechanics",
+      "summary": "Class selector presenting 15 cards and drawing rarities with weighted probabilities. Selecting a card triggers an animation that reveals its class while the other cards fade away.",
+      "reward": "Weighted randomness, event-driven programming and CSS animations to respond to player actions."
+    }
+  },
+  {
+    "id": "constelacoes",
+    "name": "Caminho das Constelações",
+    "category": "games",
+    "team": "solo",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Game design",
+      "Narrative design"
+    ],
+    "links": [
+      {
+        "kind": "code",
+        "href": "https://github.com/Biieru/Caminho-das-Constelacoes"
+      },
+      {
+        "kind": "site",
+        "href": "https://caminho-das-constelacoes.onrender.com/"
+      }
+    ],
+    "pt": {
+      "type": "Website e RPG de mesa",
+      "summary": "Universo autoral de RPG baseado no Sistema Tales, com resolução d100 e escolhas narrativas. O site reúne regras, mecânicas, personagens, ambientação e um seletor interativo de classes.",
+      "reward": "Modelagem de mecânicas, construção de mundo e organização de documentação em uma interface web temática."
+    },
+    "en": {
+      "type": "Website and tabletop RPG",
+      "summary": "Original RPG universe based on the Tales System, with d100 resolution and narrative choices. The website brings together rules, mechanics, characters, setting and an interactive class selector.",
+      "reward": "Mechanics design, worldbuilding and documentation organization in a themed web interface."
+    }
   },
   {
     id: "canes",
@@ -56,107 +567,7 @@ export const projects = [
         "App to register an organization's strategic pillars and actions, assign responsibilities and generate reports. Team of 6.",
       reward: "I handled project management and built the entire coordinator user flow.",
     },
-  },
-  {
-    id: "etl",
-    name: "etlBCB",
-    category: "back",
-    team: "solo",
-    stack: ["Python", "pandas", "SQL", "scikit-learn", "Prophet"],
-    links: [{ kind: "code", href: "https://github.com/Biieru/etlBCB" }],
-    pt: {
-      type: "Dados",
-      summary:
-        "Pipeline que extrai dados de meios de pagamento da API do Banco Central, trata com pandas e grava em SQLite ou MySQL. Em cima disso, análises de Pix e cartões e previsão do gasto com cartão.",
-      reward: "ETL completo de ponta a ponta e meus primeiros modelos de previsão.",
-    },
-    en: {
-      type: "Data",
-      summary:
-        "Pipeline that pulls payment data from Brazil's Central Bank API, cleans it with pandas and loads it into SQLite or MySQL, feeding analyses of Pix and card payments and a credit card spending forecast.",
-      reward: "A full end-to-end ETL and my first forecasting models.",
-    },
-  },
-  {
-    id: "books",
-    name: "BooksAPI",
-    category: "back",
-    team: "solo",
-    stack: ["Python", "Flask", "SQLAlchemy", "Swagger", "pytest"],
-    links: [{ kind: "code", href: "https://github.com/Biieru/BooksAPI" }],
-    pt: {
-      type: "API REST",
-      summary:
-        "API de livros com CRUD completo, banco SQLite via SQLAlchemy e documentação Swagger gerada automaticamente.",
-      reward: "Testes automatizados com pytest e cobertura acompanhada.",
-    },
-    en: {
-      type: "REST API",
-      summary:
-        "Book API with full CRUD, SQLite through SQLAlchemy and auto-generated Swagger documentation.",
-      reward: "Automated tests with pytest and tracked coverage.",
-    },
-  },
-  {
-    id: "estab",
-    name: "Estabelecimentos Credenciados",
-    category: "back",
-    team: "team",
-    stack: ["Python", "OData", "SQL"],
-    links: [{ kind: "code", href: "https://github.com/Biieru/EstabelecimentosCredenciados" }],
-    pt: {
-      type: "Dados · em dupla",
-      summary:
-        "Estudo dos estabelecimentos credenciados para cartão de crédito e débito, por bandeira e por trimestre, com dados abertos do Banco Central.",
-      reward: "Consultas OData com filtros, ordenação e paginação.",
-    },
-    en: {
-      type: "Data · pair project",
-      summary:
-        "Study of merchants accredited for credit and debit cards, by card brand and quarter, using Central Bank open data.",
-      reward: "OData queries with filters, sorting and pagination.",
-    },
-  },
-  {
-    id: "qa4",
-    name: "QA4",
-    category: "qa",
-    team: "solo",
-    stack: ["Python", "unittest"],
-    links: [{ kind: "code", href: "https://github.com/Biieru/QA4" }],
-    pt: {
-      type: "Testes",
-      summary:
-        "Calculadora com testes unitários cobrindo entradas positivas e negativas, multiplicação por zero e divisão por zero.",
-      reward: "Escrever casos de teste antes de pensar só no caminho feliz.",
-    },
-    en: {
-      type: "Testing",
-      summary:
-        "Calculator with unit tests covering positive and negative inputs, multiplication by zero and division by zero.",
-      reward: "Writing test cases beyond the happy path.",
-    },
-  },
-  {
-    id: "constelacoes",
-    name: "Caminho das Constelações",
-    category: "games",
-    team: "solo",
-    stack: ["Game design", "Narrativa", "Site"],
-    links: [{ kind: "site", href: "https://caminho-das-constelacoes.onrender.com/" }],
-    pt: {
-      type: "RPG de mesa",
-      summary:
-        "Sistema de RPG autoral com site próprio. Rolagens em d100, pontos narrativos e um mundo em que entidades míticas assistem e julgam as escolhas dos jogadores.",
-      reward: "Criar regras que geram história, não só números.",
-    },
-    en: {
-      type: "Tabletop RPG",
-      summary:
-        "Original RPG system with its own website. d100 rolls, narrative points and a world where mythic entities watch and judge the players' choices.",
-      reward: "Designing rules that create story, not just numbers.",
-    },
-  },
+  }
 ];
 
 export const text = {
