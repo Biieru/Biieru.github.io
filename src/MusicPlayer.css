@@ -1,0 +1,73 @@
+
+.rpg-music {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  width: min(280px, calc(100vw - 40px));
+  padding: 12px;
+  color: #f4ecf6;
+  background: #221830;
+  border: 2px solid #c485c9;
+  border-radius: 6px;
+  box-shadow: 5px 5px 0 #3c235c;
+  font-family: "Pixelify Sans", monospace;
+}
+
+.rpg-music-header,
+.rpg-music-controls,
+.rpg-music-volume {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.rpg-music-header {
+  color: #c485c9;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.rpg-music button {
+  background: transparent;
+  color: #f4ecf6;
+  border: 1px solid #483d57;
+  border-radius: 3px;
+  padding: 5px 9px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.rpg-music button:hover {
+  background: #3c235c;
+  border-color: #c485c9;
+}
+
+.rpg-music-controls span {
+  font-size: 12px;
+  color: #bcaec8;
+}
+
+.rpg-music-volume {
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+.rpg-music-volume input {
+  min-width: 0;
+  flex: 1;
+  accent-color: #c485c9;
+}
+
+.rpg-music-volume span {
+  min-width: 35px;
+  text-align: right;
+}
+
+@media (max-width: 480px) {
+  .rpg-music {
+    bottom: 12px;
+    right: 12px;
+  }
+}
