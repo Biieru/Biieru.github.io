@@ -1,0 +1,298 @@
+/* ============ Cores e fontes (mude aqui para trocar o visual inteiro) ============ */
+:root {
+  --noite: #150e1d;      /* fundo */
+  --janela: #221830;     /* janelas e cartões */
+  --violeta: #3c235c;    /* cor favorita 1 */
+  --lilas-cinza: #483d57;/* cor favorita 2: bordas */
+  --orquidea: #c485c9;   /* cor favorita 3: destaque */
+  --texto: #f4ecf6;
+  --texto-suave: #bcaec8;
+
+  --fonte-jogo: "Pixelify Sans", ui-monospace, monospace;
+  --fonte-texto: "Rubik", system-ui, sans-serif;
+
+  --largura: 1120px;
+  --margem: clamp(16px, 5vw, 48px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--noite);
+  color: var(--texto);
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+
+h1, h2, h3 {
+  font-family: var(--fonte-jogo);
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--orquidea);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: 16px;
+  top: 16px;
+  z-index: 20;
+  background: var(--orquidea);
+  color: var(--noite);
+  padding: 8px 12px;
+}
+
+/* Janela no estilo RPG: borda dupla usada em menus, cartões e caixas de diálogo */
+.title-menu,
+.quest,
+.sheet,
+.dialog {
+  background: var(--janela);
+  border: 2px solid var(--lilas-cinza);
+  box-shadow: inset 0 0 0 3px var(--janela), inset 0 0 0 4px var(--violeta);
+  border-radius: 6px;
+}
+
+/* ============ HUD (topo) ============ */
+.hud {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 14px var(--margem);
+  background: rgba(21, 14, 29, 0.92);
+  border-bottom: 1px solid var(--lilas-cinza);
+}
+
+.hud-name {
+  font-family: var(--fonte-jogo);
+  font-size: 1.25rem;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.hud-nav { display: flex; gap: 20px; }
+.hud-nav a { text-decoration: none; color: var(--texto-suave); }
+.hud-nav a:hover { color: var(--texto); }
+
+.lang {
+  display: inline-flex;
+  border: 2px solid var(--lilas-cinza);
+  border-radius: 6px;
+  background: transparent;
+  padding: 2px;
+  cursor: pointer;
+  font: 600 0.875rem var(--fonte-jogo);
+}
+.lang span { padding: 4px 8px; color: var(--texto-suave); border-radius: 3px; }
+.lang span.on { background: var(--orquidea); color: var(--noite); }
+
+/* ============ Tela de título ============ */
+main { max-width: var(--largura); margin: 0 auto; padding: 0 var(--margem); }
+
+.title-screen {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+  padding: clamp(40px, 8vw, 96px) 0;
+}
+
+.title-role {
+  margin: 0 0 12px;
+  color: var(--orquidea);
+  font-family: var(--fonte-jogo);
+  font-size: 1.125rem;
+}
+
+.title-screen h1 {
+  font-size: clamp(3.75rem, 11vw, 8.5rem);
+  letter-spacing: -0.01em;
+  line-height: 0.92;
+  text-shadow: 6px 6px 0 var(--violeta);
+}
+
+.title-intro {
+  max-width: 32em;
+  margin: 24px 0 28px;
+  color: var(--texto-suave);
+  font-size: 1.1875rem;
+}
+
+.title-menu {
+  display: inline-block;
+  padding: 16px 24px 12px 16px;
+}
+.title-menu ul { list-style: none; margin: 0; padding: 0; }
+.title-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 4px;
+  font-family: var(--fonte-jogo);
+  font-size: 1.375rem;
+  text-decoration: none;
+  color: var(--texto-suave);
+}
+.title-menu a:focus-visible { outline-offset: 0; }
+.title-menu .cursor { color: var(--orquidea); visibility: hidden; font-size: 0.9em; }
+.title-menu a.is-active { color: var(--texto); }
+.title-menu a.is-active .cursor { visibility: visible; animation: piscar 1s steps(2, start) infinite; }
+.title-hint { margin: 8px 0 0 28px; font-size: 0.8125rem; color: var(--texto-suave); }
+
+@keyframes piscar { to { visibility: hidden; } }
+
+.title-art { margin: 0; }
+.title-art img {
+  width: 100%;
+  border: 4px solid var(--orquidea);
+  border-radius: 6px;
+  box-shadow: 14px 14px 0 var(--violeta);
+}
+
+/* ============ Seções ============ */
+.section { padding: clamp(48px, 8vw, 96px) 0; border-top: 1px solid var(--lilas-cinza); }
+
+.section-head { margin-bottom: 28px; }
+.section-head h2 { font-size: clamp(2.25rem, 5vw, 3.25rem); }
+.section-head p { margin: 10px 0 0; color: var(--texto-suave); max-width: 40em; }
+
+/* ============ Projetos ============ */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.filters button {
+  font: 500 0.9375rem var(--fonte-texto);
+  color: var(--texto-suave);
+  background: transparent;
+  border: 2px solid var(--lilas-cinza);
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+.filters button[aria-pressed="true"] {
+  background: var(--orquidea);
+  border-color: var(--orquidea);
+  color: var(--noite);
+}
+
+.quest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.quest { display: flex; flex-direction: column; padding: 22px 22px 18px; }
+.quest-head { display: grid; grid-template-columns: 1fr auto; column-gap: 12px; align-items: start; }
+.quest-type { grid-column: 1 / -1; margin: 0 0 4px; font-size: 0.875rem; color: var(--orquidea); }
+.quest h3 { font-size: 1.625rem; min-width: 0; overflow-wrap: anywhere; hyphens: auto; }
+.quest-party {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--lilas-cinza);
+  color: var(--texto-suave);
+  white-space: nowrap;
+}
+.quest-party--team { border-color: var(--orquidea); color: var(--texto); }
+.quest-summary { margin: 14px 0 10px; }
+.quest-reward { margin: 0 0 16px; color: var(--texto-suave); font-size: 0.9375rem; }
+.quest-reward strong { color: var(--texto); font-weight: 500; }
+.quest-stack { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; padding: 0; }
+.quest-stack li { font-size: 0.8125rem; padding: 2px 8px; background: var(--violeta); border-radius: 4px; }
+.quest-links { margin: auto 0 0; display: flex; gap: 18px; }
+.quest-links a { font-weight: 500; text-decoration-color: var(--orquidea); text-underline-offset: 4px; }
+.empty { color: var(--texto-suave); }
+
+/* ============ Sobre: ficha de personagem ============ */
+.sheet {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px 40px;
+  padding: 28px;
+}
+.sheet-art { grid-column: 1; grid-row: 1 / span 2; border-radius: 4px; width: 100%; object-fit: cover; }
+.sheet-stats { margin: 0; }
+.sheet-stats div { display: grid; grid-template-columns: 9.5em 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--lilas-cinza); }
+.sheet-stats dt { font-family: var(--fonte-jogo); color: var(--orquidea); }
+.sheet-stats dd { margin: 0; }
+.sheet-body p { margin: 0 0 12px; max-width: 36em; }
+.gear { grid-column: 1 / -1; }
+.gear h3 { font-size: 1.125rem; margin: 0 0 10px; color: var(--texto-suave); }
+.gear ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; padding: 0; }
+.gear-main li { font-family: var(--fonte-jogo); font-size: 1.125rem; padding: 6px 14px; border: 2px solid var(--orquidea); border-radius: 4px; }
+.gear-side li { padding: 4px 10px; background: var(--violeta); border-radius: 4px; font-size: 0.9375rem; }
+
+/* ============ Jornada ============ */
+.journey { list-style: none; margin: 0 0 56px; padding: 0 0 0 20px; border-left: 2px solid var(--lilas-cinza); }
+.journey li { position: relative; display: grid; grid-template-columns: 8.5em 1fr; column-gap: 20px; padding: 0 0 22px; }
+.journey li::before {
+  content: "";
+  position: absolute;
+  left: -27px;
+  top: 7px;
+  width: 12px;
+  height: 12px;
+  background: var(--orquidea);
+  transform: rotate(45deg);
+}
+.journey-when { font-family: var(--fonte-jogo); color: var(--orquidea); grid-row: span 2; }
+.journey-what { font-weight: 500; }
+.journey-where { color: var(--texto-suave); }
+
+.writing h3 { font-size: 1.5rem; }
+.writing p { margin: 8px 0 12px; color: var(--texto-suave); }
+.writing ul { margin: 0 0 16px; padding-left: 1.2em; }
+.writing a { text-decoration-color: var(--orquidea); text-underline-offset: 4px; }
+
+/* ============ Contato ============ */
+.dialog { padding: clamp(24px, 4vw, 40px); }
+.dialog h2 { font-size: clamp(2.25rem, 5vw, 3.25rem); }
+.dialog > p { margin: 10px 0 18px; color: var(--texto-suave); }
+.contact-email {
+  font-family: var(--fonte-jogo);
+  font-size: clamp(1.5rem, 4.5vw, 2.5rem);
+  text-decoration-color: var(--orquidea);
+  text-underline-offset: 8px;
+  word-break: break-all;
+}
+.contact-links { list-style: none; display: flex; flex-wrap: wrap; gap: 12px 28px; margin: 26px 0 0; padding: 0; }
+
+.footer { max-width: var(--largura); margin: 0 auto; padding: 28px var(--margem) 48px; color: var(--texto-suave); font-size: 0.875rem; }
+
+/* ============ Celular e tablet ============ */
+@media (max-width: 860px) {
+  .hud-nav { display: none; }
+  .title-screen { grid-template-columns: 1fr; }
+  .title-art { order: -1; max-width: 300px; }
+  .sheet { grid-template-columns: 1fr; padding: 20px; }
+  .sheet-art { grid-row: auto; }
+  .sheet-stats div { grid-template-columns: 1fr; gap: 0; }
+  .journey li { grid-template-columns: 1fr; }
+  .journey-when { grid-row: auto; }
+}
+
+@media (max-width: 400px) {
+  .quest-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .title-menu a.is-active .cursor { animation: none; }
+}
