@@ -11,6 +11,8 @@ export const links = {
   devto: "https://dev.to/bordercansado",
   cvPt: "curriculo-gabriel-coelho.pdf",
   cvEn: "resume-gabriel-coelho.pdf",
+  portfolioPt: "Gabriel_Coelho_Portfolio_PT.pdf",
+  portfolioEn: "Gabriel_Coelho_Portfolio_EN.pdf",
 };
 
 // Categorias usadas no filtro de projetos
@@ -581,7 +583,7 @@ export const text = {
       intro:
         "Front-end, mobile e games. Estudo Análise e Desenvolvimento de Sistemas no Senac PE e estou em busca de estágio.",
       menuLabel: "Escolha uma opção",
-      menu: ["Ver projetos", "Baixar currículo", "Falar comigo"],
+      menu: ["Ver projetos", "Baixar currículo", "Baixar portfólio", "Falar comigo"],
       hint: "Use ↑ ↓ e Enter, ou clique",
       portraitAlt: "Ilustração de Gabriel Coelho sorrindo",
     },
@@ -658,7 +660,7 @@ export const text = {
       intro:
         "Front-end, mobile and games. I study Systems Analysis and Development at Senac PE and I'm looking for an internship.",
       menuLabel: "Choose an option",
-      menu: ["See projects", "Download résumé", "Get in touch"],
+      menu: ["See projects", "Download résumé", "Download Portfolio", "Get in touch"],
       hint: "Use ↑ ↓ and Enter, or click",
       portraitAlt: "Illustration of Gabriel Coelho smiling",
     },

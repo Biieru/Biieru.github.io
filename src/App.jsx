@@ -52,6 +52,11 @@ function TitleMenu({ t, lang }) {
     },
     {
       label: t.hero.menu[2],
+      href: BASE + (lang === "pt" ? links.portfolioPt : links.portfolioEn),
+      download: true,
+    },
+    {
+      label: t.hero.menu[3],
       href: "#contato",
     },
   ];
